@@ -1,18 +1,18 @@
 const assert = require('chai').assert;
 const {randomArray} = require('../helpers/generators');
-const insertionSort = require('../../src/sort/insertionSort');
+const mergeSort = require('../../src/sort/mergeSort');
 
-describe('Insertion sort', () => {
+describe('Merge sort', () => {
 
   it('should work in-place on empty list', () => {
     const array = [];
-    insertionSort(array);
+    mergeSort(array);
     assert.deepEqual(array, []);
   });
 
   it('should work in-place on single element list', () => {
     const array = [7];
-    insertionSort(array);
+    mergeSort(array);
     assert.deepEqual(array, [7]);
   });
 
@@ -22,11 +22,11 @@ describe('Insertion sort', () => {
       const array = randomArray(1000);
       const testArray = array.slice().sort( (a, b) => a - b );
 
-      insertionSort(array);
+      mergeSort(array);
 
       assert.deepEqual(array, testArray);
     }
-    console.timeEnd('\t\t50 loops');
+    console.timeEnd('\t\t50 loops')
   });
 
   it('should work many times on 5000-item lists', () => {
@@ -35,10 +35,10 @@ describe('Insertion sort', () => {
       const array = randomArray(5000);
       const testArray = array.slice().sort( (a, b) => a - b );
 
-      insertionSort(array);
+      mergeSort(array);
 
       assert.deepEqual(array, testArray);
     }
-    console.timeEnd('\t\t50 loops');
+    console.timeEnd('\t\t50 loops')
   });
 });

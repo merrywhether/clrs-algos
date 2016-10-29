@@ -1,3 +1,5 @@
+// n^2
+
 function insertionSort (array) {
   for (let j = 1; j < array.length; j++) {
     const key = array[j];

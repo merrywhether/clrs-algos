@@ -5,6 +5,7 @@ Sorts
 -----
 - Insertion sort
 - Selection sort
+- Merge sort
 
 Searches
 --------
