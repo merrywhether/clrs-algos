@@ -10,3 +10,4 @@ Sorts
 Searches
 --------
 - Linear search
+- Binary search
