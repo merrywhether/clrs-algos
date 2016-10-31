@@ -10,7 +10,8 @@ describe('Sorting', function() {
   const sorts = [
     'insertion',
     // 'selection', // very slow
-    'merge'
+    'merge',
+    'binaryInsertion'
   ];
 
   sorts.forEach( function(type) {
@@ -30,7 +31,13 @@ describe('Sorting', function() {
         assert.deepEqual(array, [7]);
       });
 
-      it('sort 2-item list', function() {
+      it('sort 2-item sorted list', function() {
+        const array = [3, 7];
+        sortFunc(array);
+        assert.deepEqual(array, [3, 7]);
+      });
+
+      it('sort 2-item unsorted list', function() {
         const array = [7, 3];
         sortFunc(array);
         assert.deepEqual(array, [3, 7]);
@@ -56,6 +63,7 @@ describe('Sorting', function() {
           console.timeEnd(timerName);
         });
       });
+
     });
   });
 });

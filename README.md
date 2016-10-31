@@ -6,6 +6,7 @@ Sorts
 - Insertion sort
 - Selection sort
 - Merge sort
+- Insertion sort with binary search
 
 Searches
 --------
