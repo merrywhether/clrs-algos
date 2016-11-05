@@ -3,15 +3,17 @@ const {randomArray} = require('./generators');
 
 const LOOP_COUNT = 5;
 const ARRAY_LENGTHS = [1000, 10000, 100000];
+// const ARRAY_LENGTHS = [10];
 
 describe('Sorting', function() {
   this.timeout(0);
 
   const sorts = [
-    'insertion',
     // 'selection', // very slow
-    'merge',
-    'binaryInsertion'
+    'insertion'
+    // 'merge',
+    // 'binaryInsertion',
+    // 'insertionMerge'
   ];
 
   sorts.forEach( function(type) {

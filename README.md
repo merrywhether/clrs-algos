@@ -7,6 +7,7 @@ Sorts
 - Selection sort
 - Merge sort
 - Insertion sort with binary search
+- Merge sort with insertion sort below sub-array size limit
 
 Searches
 --------
