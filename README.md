@@ -14,3 +14,8 @@ Searches
 --------
 - Linear search
 - Binary search
+
+Maximum Subarray
+----------------
+- Brute force
+- Divide/conquer
