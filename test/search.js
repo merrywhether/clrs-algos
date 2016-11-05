@@ -2,14 +2,14 @@ const assert = require('chai').assert;
 const {randomNumber, arrayWithoutTargetValue, arrayWithTargetValueAtPosition} = require('./generators');
 
 const LOOP_COUNT = 10;
-const ARRAY_LENGTH = 1000000;
+const ARRAY_LENGTH = 100000;
 
 describe('Searching', function() {
   this.timeout(0);
 
   const searches = [
-    'linear',
-    'binary'
+    // 'linear',
+    'binary',
   ];
 
   searches.forEach( function(type) {
@@ -17,24 +17,23 @@ describe('Searching', function() {
 
     describe(`${type} search`, function() {
 
-      it('search failure on empty list', function() {
-        const idx = searchFunc([], 1);
-        assert.strictEqual(idx, undefined);
-      });
+      const tests = [
+        // 0-item
+        {array: [], target: 1, expectIdx: undefined, title: 'search failure on empty list'},
 
-      it('search success on 1-item list', function() {
-        const idx = searchFunc([7], 7);
-        assert.strictEqual(idx, 0);
-      });
+        // 1-item
+        {array: [7], target: 7, expectIdx: 0, title: 'search success on 1-item list'},
 
-      it('search success on 4-item list', function() {
-        const idx = searchFunc([1, 3, 4, 5], 4);
-        assert.strictEqual(idx, 2);
-      });
+        // 4-item
+        {array: [1, 3, 4, 5], target: 4, expectIdx: 2, title: 'search success on 4-item list'},
+        {array: [1, 3, 4, 5], target: 7, expectIdx: undefined, title: 'search failure on 4-item list'},
+      ];
 
-      it('search failure on 4-item list', function() {
-        const idx = searchFunc([1, 3, 4, 5], 7);
-        assert.strictEqual(idx, undefined);
+      tests.forEach( function({ array, target, expectIdx, title }) {
+        it(title, function() {
+          const idx = searchFunc(array, target);
+          assert.strictEqual(idx, expectIdx);
+        });
       });
 
       it(`search success on ${ARRAY_LENGTH}-item lists ${LOOP_COUNT} times`, function() {
@@ -47,7 +46,7 @@ describe('Searching', function() {
         });
 
         console.time(timerName);
-        arrays.forEach( ({target, position, array}) => {
+        arrays.forEach( ({ target, position, array }) => {
           const idx = searchFunc(array, target);
           assert.strictEqual(idx, position);
         });
